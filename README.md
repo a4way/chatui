@@ -1,58 +1,87 @@
-# Chatbot UI
+# ChatUI2
 
-A lightweight and modern chat interface for LLM interactions with Markdown support!
+Eine moderne Chat-Anwendung mit WebSocket-Backend und OpenAI-Integration.
 
-## Overview
+## Features
 
-A minimalist chat interface built with React and TypeScript, designed to be easily integrated with any LLM backend. Features a clean and modern design.
+- Modernes UI mit Tailwind CSS
+- Echtzeit-Kommunikation über WebSocket
+- OpenAI GPT-4 Integration
+- Bildersuche über Google Custom Search API
+- Responsive Design
+- Dark/Light Mode
 
-![Demo](demo/image.png)
+## Installation
 
-## Getting Started
+### Voraussetzungen
 
-1. Clone the repository
+- Node.js (v18 oder höher)
+- Python 3.8 oder höher
+- OpenAI API Key
+- Google Custom Search API Key (optional, für Bildersuche)
+
+### Frontend Setup
+
+1. Repository klonen:
 ```bash
-git clone https://github.com/ChristophHandschuh/chatbot-ui.git
-cd chatbot-ui
+git clone https://github.com/a4way/chatui.git
+cd chatui
 ```
 
-2. Install dependencies
+2. Dependencies installieren:
 ```bash
-npm i
+npm install
 ```
 
-3. Start the development server
+3. Frontend starten:
 ```bash
 npm run dev
 ```
 
-## Test Mode
+Das Frontend ist dann unter `http://localhost:8501` erreichbar.
 
-The project includes a test backend for development and testing purposes. To use the test mode:
+### Backend Setup
 
-1. Navigate to the testbackend directory
-2. Create a Python virtual environment:
+1. In das Backend-Verzeichnis wechseln:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+cd testbackend
 ```
-3. Install the required package:
+
+2. Python Dependencies installieren:
 ```bash
-pip install websockets
+pip install -r requirements.txt
 ```
-4. Run the test backend:
+
+3. Umgebungsvariablen konfigurieren:
+   - Kopiere `.env.example` zu `.env`
+   - Füge deine API-Keys ein:
+     ```
+     OPENAI_API_KEY=dein_openai_api_key
+     GOOGLE_API_KEY=dein_google_api_key
+     GOOGLE_SEARCH_ENGINE_ID=deine_search_engine_id
+     ```
+
+4. Backend starten:
 ```bash
 python test.py
 ```
 
-## Credits
+Das Backend läuft dann auf Port 8090.
 
-This project was built by:
-- [Leon Binder](https://github.com/LeonBinder)
-- [Christoph Handschuh](https://github.com/ChristophHandschuh)
+## Verwendung
 
-Some code components were inspired by and adapted from [Vercel's AI Chatbot](https://github.com/vercel/ai-chatbot).
+1. Öffne die Frontend-Anwendung im Browser (http://localhost:8501)
+2. Sende eine Nachricht an den Chatbot
+3. Der Bot antwortet mit Hilfe der OpenAI API
+4. Für Bildersuche: Sende eine Nachricht im Format `/image [Suchbegriff]`
 
-## License
+## Entwicklung
 
-This project is licensed under the Apache License 2.0. Please note that some components were adapted from Vercel's open source AI Chatbot project.
+- Frontend: React + TypeScript + Vite
+- Backend: Python + WebSocket
+- Styling: Tailwind CSS
+- API: OpenAI GPT-4
+
+## Lizenz
+
+MIT License - siehe [LICENSE](LICENSE) für Details.
